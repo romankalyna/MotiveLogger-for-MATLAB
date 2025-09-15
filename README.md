@@ -91,7 +91,7 @@ The exported CSV file contains, for each sample:
 
 **CSV Example:**  
 The CSV file contains wide columns for each rigid body, orientation, and marker position, with each row representing a sample in time.  
-![image1](image1)
+![image1](csvexample)
 
 **Example CSV header:**
 ```
