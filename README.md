@@ -26,11 +26,22 @@ MarkerLogger is a robust MATLAB tool for logging and visualizing tracking data f
 
 - MATLAB R2020b or newer
 - Motive Tracker 2.2.0
-- **NatNet.p MATLAB SDK file:**  
-  To communicate with Motive Tracker from MATLAB, you must have the NatNet SDK properly installed and the `NatNet.p` file present in your MATLAB path.  
-  - The NatNet SDK provides the interface for real-time data streaming from Motive to MATLAB.
-  - You can download the NatNet SDK from [OptiTrack's website](https://optitrack.com/products/natnet-sdk/).
-  - Place `NatNet.p` (and any required dependencies) in your project folder or somewhere on your MATLAB path.
+
+### NatNet SDK & Files Needed
+
+To communicate with Motive Tracker from MATLAB, you **must** have the NatNet SDK installed and several key files present in your MATLAB path or project folder:
+
+| File Name         | Required | Description                      | Location                |
+|-------------------|----------|----------------------------------|-------------------------|
+| NatNet.p          | Yes      | MATLAB interface                 | Project folder/MATLAB path |
+| NatNetML.dll      | Yes      | Managed code library             | Project folder or PATH  |
+| NatNet.dll        | Sometimes| Unmanaged code library           | Project folder or PATH  |
+| OptiTrackCore.dll | Rarely   | Additional dependency (if needed)| Project folder or PATH  |
+
+- **How to get them:**  
+  Download the NatNet SDK from [OptiTrack's website](https://optitrack.com/products/natnet-sdk/).
+- Place `NatNet.p` and all required DLLs in your MATLAB project folder or somewhere in your system path.
+- If you see DLL loading errors, double-check all files are present and accessible.
 
 ---
 
@@ -45,8 +56,8 @@ MarkerLogger is a robust MATLAB tool for logging and visualizing tracking data f
    addpath('path_to_MarkerLogger_folder');
    ```
 3. **NatNet SDK:**  
-   - Download the NatNet SDK and copy `NatNet.p` to your MATLAB project directory.
-   - Ensure any other required NatNet files are available and your MATLAB can call NatNet functions.
+   - Download the NatNet SDK and copy `NatNet.p`, `NatNetML.dll`, and any other required DLLs to your MATLAB project directory.
+   - Make sure MATLAB can find these files.
 
 ---
 
@@ -89,9 +100,11 @@ The exported CSV file contains, for each sample:
 - **Distance between RB1 and RB2** (meters)
 - **Marker positions:** XYZ for all six markers (MyRobot frame, mm)
 
-**CSV Example:**  
-The CSV file contains wide columns for each rigid body, orientation, and marker position, with each row representing a sample in time.  
-![csvexample](csvexample.png)
+### CSV Example
+
+The CSV file contains wide columns for each rigid body, orientation, and marker position, with each row representing a sample in time.
+
+![CSV Example](images/csvexample.png)
 
 **Example CSV header:**
 ```
