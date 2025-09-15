@@ -89,6 +89,10 @@ The exported CSV file contains, for each sample:
 - **Distance between RB1 and RB2** (meters)
 - **Marker positions:** XYZ for all six markers (MyRobot frame, mm)
 
+**CSV Example:**  
+The CSV file contains wide columns for each rigid body, orientation, and marker position, with each row representing a sample in time.  
+![image1](image1)
+
 **Example CSV header:**
 ```
 SampleIdx,Time_s_approx,
@@ -129,6 +133,7 @@ M1_MyRobotX_mm,M1_MyRobotY_mm,M1_MyRobotZ_mm, ... up to M6
 - Marker-based trajectory analysis
 
 ---
+
 
 ## Support
 
